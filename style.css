@@ -1,62 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 :root {
-    --blue: #264653;
-    --green: #2a9d8f;
-    --yellow: #e9c46a;
+    --off-white: #EEEEEE;
+    --light-brown: #E1D4BB;
+    --dark-brown: #83764F;
+    --back: #537188;
 }
 
 body {
-    background-color: var(--blue);
-    font-family: 'Patrick Hand', cursive;
+    background-color: var(--back);
+    margin: 0px;
+    font-family: 'Patrick Hand', 'cursive';
 }
 
-.game_board {
-    margin: 10% auto;
-    width: 260px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.box {
-    width : 82px;
-    height: 82px;
-    color: var(--green);
-    font-weight:900;
-    font-size: 3rem;
-    text-shadow:2px 2px 2px#fff;
-    border: 2px solid var(--yellow);
+#header {
+    color: #fff;
+    background-color: var(--dark-brown);
+    box-shadow: 3px 5px 13px rgba(0,5,13, .9);
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding: 10px 0px;
+    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+}
+
+#all-content {
+    height: 90vh;
+    background-color:var(--back);
+    margin: 0px;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-container {
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: var(--light-brown);
+    border: 5px solid var(--dark-brown);
+    border-radius: 30px;
+    box-shadow: 3px 5px 3px rgba(0,5,13,0.9);
+    padding: 40px;
+    aspect-ratio: 1;
+    height: 70%;
+    font-weight: 900;
+}
+
+.square {
+    padding : 30px;
     text-align: center;
-    padding-top: 3px;
+    /* background-color:antiquewhite; */
+    border: 2px solid var(--back);
+    cursor: pointer;
+}
+.square:hover {
+    background-color:#d2bb80 ;
 }
 
-.box:nth-child(3n){
-    border-right: none;
+#header-board-wrapper {
+    /* background-color: #264653; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
 }
 
-.box:nth-child(6) ~ .box{
-    border-bottom: none;
-}
-
-.box:nth-child(1),
-.box:nth-child(2),
-.box:nth-child(3){
-    border-top: none;
-}
-
-.box:nth-child(1),
-.box:nth-child(4),
-.box:nth-child(7){
-    border-left: none;
-} 
-
-
-/* title and button */
-.btn {
-    margin: auto;
-}
-.current_player {
-    margin: auto;
-}
+.

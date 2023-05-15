@@ -2,27 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="container">
-        <div class="current_player">
-            Tic Tac Toe
-        </div>
-        <div class="btn">Restart</div>
-        <div class="game_board ">
-            <div class="box" id="0">X</div>
-            <div class="box" id="1">O</div>
-            <div class="box" id="2">X</div>
-            <div class="box" id="3">X</div>
-            <div class="box" id="4">O</div>
-            <div class="box" id="5">O</div>
-            <div class="box" id="6">X</div>
-            <div class="box" id="7">O</div>
-            <div class="box" id="8">X</div>
+    <div id="all-content">
+        <div id="main-content">
+            <div id="header-board-wrapper">
+                
+            <!-- player turn  -->
+            <div id="header">
+                <div id="instruction">
+                    X turn
+                </div>
+            </div>
+            <!-- end player turn  -->
+
+            <!-- board -->
+            <div id="grid-container">
+
+                <!-- 1st row  -->
+                <div class="square" style="border-top: none; border-left: none">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+                <div class="square" style="border-top: none;">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+                <div class="square" style="border-top: none; border-right: none">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+
+                <!-- 2nd row -->
+                <div class="square" style="border-left: none;">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+                <div class="square">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+                <div class="square" style="border-right: none">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+
+                <!-- 3rd row  -->
+                <div class="square" style="border-bottom: none; border-left: none">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+                <div class="square" style="border-bottom: none;">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+                <div class="square" style="border-bottom: none; border-right: none">
+                    <div class="square-content">
+                        X
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- end board -->
+
+
+            </div>
         </div>
     </div>
-
+    
 </body>
 </html>
