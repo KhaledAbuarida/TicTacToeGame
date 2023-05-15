@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+:root {
+    --blue: #264653;
+    --green: #2a9d8f;
+    --yellow: #e9c46a;
+}
+
+body {
+    background-color: var(--blue);
+    font-family: 'Patrick Hand', cursive;
+}
+
+.game_board {
+    margin: 10% auto;
+    width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width : 82px;
+    height: 82px;
+    color: var(--green);
+    font-weight:900;
+    font-size: 3rem;
+    text-shadow:2px 2px 2px#fff;
+    border: 2px solid var(--yellow);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.box:nth-child(3n){
+    border-right: none;
+}
+
+.box:nth-child(6) ~ .box{
+    border-bottom: none;
+}
+
+.box:nth-child(1),
+.box:nth-child(2),
+.box:nth-child(3){
+    border-top: none;
+}
+
+.box:nth-child(1),
+.box:nth-child(4),
+.box:nth-child(7){
+    border-left: none;
+} 
+
+
+/* title and button */
+.btn {
+    margin: auto;
+}
+.current_player {
+    margin: auto;
+}
