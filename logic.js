@@ -50,8 +50,13 @@ function titleBoard()
 {
     if(winner != '')
     {
-        nextPlayer()
-        title.textContent = `${turn}'s Won` 
+        if(winner == 'tie')
+            title.textContent = 'Tie'
+        else
+        {
+            nextPlayer()
+            title.textContent = `${turn}'s Won` 
+        }
         isRunning = false
         setInterval(() => {
             title.textContent += '.'
