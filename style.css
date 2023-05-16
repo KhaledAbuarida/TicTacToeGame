@@ -14,9 +14,9 @@ body {
 }
 
 #header {
-    color: #fff;
-    background-color: var(--dark-brown);
-    box-shadow: 0px 5px 13px rgba(0,5,13, .9);
+    color: var(--off-white);
+    /* background-color: var(--dark-brown); */
+    /* box-shadow: 0px 5px 13px rgba(0,5,13, .9); */
     margin-bottom: 20px;
     border-radius: 30px;
     padding: 10px 0px;
@@ -25,6 +25,8 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+    font-weight: 200;
+    
 
 }
 
@@ -58,9 +60,10 @@ body {
 }
 
 .square {
-    padding : 30px;
+    padding : 20px;
+    width: 40px;
+    height: 40px;
     text-align: center;
-    /* background-color:antiquewhite; */
     border: 2px solid var(--back);
     cursor: pointer;
 }
@@ -80,9 +83,9 @@ body {
 .btn {
     color: var(--light-brown);
     background-color: var(--dark-brown);
-    padding: 8px;
+    height: 32px;
+    width: 90px;
     border-radius: 20px;
-    width: 100px;
     font-size: 1.2rem;
     margin-top: 20px;
     cursor: pointer;
