@@ -86,3 +86,8 @@ function checkWinner()
     if(!myBoard.includes(''))
         winner = 'tie'
 }
+
+function reset()
+{
+    location.reload()
+}
