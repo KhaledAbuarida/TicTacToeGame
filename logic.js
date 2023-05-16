@@ -1,178 +1,88 @@
-let currentTurn = 'X'
-let turnBoard = document.getElementById('instruction')
-let boardArray = [
-    '0','1','2',
-    '3','4','5',
-    '6','7','8'
+
+let title = document.getElementById('instruction')
+let resetBtn = document.getElementsByClassName('.btn')
+let myBoard = ['','','','','','','','','']
+let helperWinningMatrix = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
 ]
 
-function updateState(id, element)
-{
-    boardArray[id] = element.innerHTML
-}
 
-function newGame()
-{
-    for(let i=0 ; i < 9 ; i++)
-    {
-        let square = document.getElementById(i);
-        square.innerHTML = '';
-    }   
-}
-newGame();
-
+let winner = ''
+let turn = 'X'
+let isRunning = true
 function game(id)
 {
-    let square = document.getElementById(`${id}`)
-    if(currentTurn === 'X' && square.innerHTML == '' )
+    if(isRunning)
     {
-        square.innerHTML = currentTurn;
-        updateState(id,square)
-        changeTurn();        
-        turnBoard.innerHTML = `${currentTurn} turn`;
+        if(myBoard[id] == '')
+        {
+            myBoard[id] = turn
+            print(id)
+            nextPlayer()
+            titleBoard()
+        }
+        checkWinner()
+        titleBoard()
     }
-    else if (currentTurn === 'O' && square.innerHTML == '')
-    {
-        square.innerHTML = currentTurn;
-        updateState(id,square)
-        changeTurn();
-        turnBoard.innerHTML = `${currentTurn} turn`;
-    }
-    checkWinner();
-
 
 }
 
-function changeTurn()
+function print(id)
 {
-    if(currentTurn === 'X')
-        currentTurn = 'O'
-    else
-        currentTurn = 'X'
+    let square = document.getElementById(id);
+    square.textContent = myBoard[id];
 }
+function nextPlayer()
+{
+    if(turn == 'X')
+        turn = 'O'
+    else
+        turn = 'X'
+}
+function titleBoard()
+{
+    if(winner != '')
+    {
+        nextPlayer()
+        title.textContent = `${turn}'s Won` 
+        isRunning = false
+        setInterval(() => {
+            title.textContent += '.'
+        }, 1000);
+        setTimeout(() => {
+            location.reload()
+        }, 4000);
+        return
+    }
+    title.textContent = turn + ' turn';
+}
+
 function checkWinner()
 {
-    if(boardArray[0] == boardArray[1] && boardArray[1] == boardArray[2])
-    {
-        turnBoard.innerHTML = `${boardArray[0]} is won`;
-        document.getElementById(0).style.background = '#d2bb80'
-        document.getElementById(1).style.background = '#d2bb80'
-        document.getElementById(2).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-    else if(boardArray[3] == boardArray[4] && boardArray[4] == boardArray[5])
-    {
-        turnBoard.innerHTML = `${boardArray[3]} is won`;
-        document.getElementById(3).style.background = '#d2bb80'
-        document.getElementById(4).style.background = '#d2bb80'
-        document.getElementById(5).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    } 
-    else if(boardArray[6] == boardArray[7] && boardArray[7] == boardArray[8])
-    {
-        turnBoard.innerHTML = `${boardArray[6]} is won`;
-        document.getElementById(6).style.background = '#d2bb80'
-        document.getElementById(7).style.background = '#d2bb80'
-        document.getElementById(8).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-    else if(boardArray[0] == boardArray[3] && boardArray[3] == boardArray[6])
-    {
-        turnBoard.innerHTML = `${boardArray[0]} is won`;
-        document.getElementById(0).style.background = '#d2bb80'
-        document.getElementById(3).style.background = '#d2bb80'
-        document.getElementById(6).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '..'
-        }, 1000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-    else if(boardArray[1] == boardArray[4] && boardArray[4] == boardArray[7])
-    {
-        turnBoard.innerHTML = `${boardArray[1]} is won`;
-        document.getElementById(1).style.background = '#d2bb80'
-        document.getElementById(4).style.background = '#d2bb80'
-        document.getElementById(7).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-    else if(boardArray[2] == boardArray[5] && boardArray[5] == boardArray[8])
-    {
-        turnBoard.innerHTML = `${boardArray[2]} is won`;
-        document.getElementById(0).style.background = '#d2bb80'
-        document.getElementById(5).style.background = '#d2bb80'
-        document.getElementById(8).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-    else if(boardArray[0] == boardArray[4] && boardArray[4] == boardArray[8])
-    {
-        turnBoard.innerHTML = `${boardArray[0]} is won`;
-        document.getElementById(0).style.background = '#d2bb80'
-        document.getElementById(4).style.background = '#d2bb80'
-        document.getElementById(8).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-    else if(boardArray[2] == boardArray[4] && boardArray[4] == boardArray[6])
-    {
-        turnBoard.innerHTML = `${boardArray[2]} is won`;
-        document.getElementById(2).style.background = '#d2bb80'
-        document.getElementById(4).style.background = '#d2bb80'
-        document.getElementById(6).style.background = '#d2bb80'
-
-        setInterval(() => {
-            turnBoard.innerHTML += '.'
-        }, 2000);
-
-        setTimeout(() => {
-            location.reload()
-        }, 4000);
-    }
-
-
+    helperWinningMatrix.forEach(element => {
+        let boxA = element[0]
+        let boxB = element[1]
+        let boxC = element[2]
+        if(myBoard[boxA] == myBoard[boxB] && myBoard[boxB] == myBoard[boxC] && myBoard[boxA] != '')
+        {
+            winner = myBoard[boxA];
+            let FrontA = document.getElementById(boxA).style.background = "#d2bb80"
+            let FrontB = document.getElementById(boxB).style.background = "#d2bb80"
+            let FrontC = document.getElementById(boxC).style.background = "#d2bb80"
+            if(myBoard[boxA] == 'X')
+                winner = 'X'
+            else
+                winner = 'O'
+            return
+        }
+    });
+    if(!myBoard.includes(''))
+        winner = 'tie'
 }
-
